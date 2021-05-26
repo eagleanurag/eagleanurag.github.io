@@ -14,24 +14,46 @@
       <!-- <link id=favicon rel="icon" type="image/png" href="images/loopfavicon.gif"> -->
 	   <link id="favicon" rel="icon" type="image/ico"> 
 	   <script> 
+		   
+		   
+  window.onload = function () {
+  const favicon = document.getElementById("favicon");
+  let pageTitle = document.title;
+  let attentionMessage = "Come back";
+  let blinkEvent = null;
 
-	// Assign a constant variable and get them by the favicon Id 
-	const favicon = document.getElementById("favicon");
+  document.addEventListener("visibilitychange", function (e) {
+    let isPageActive = !document.hidden;
 
-	// this below function assign Gif favicon to firefox browser
-	//other than firefox will show simple ico favicon
-	// because only farefox have ability to run gif favicon 
-	function myFunction() { 
-		if(navigator.userAgent.indexOf("Firefox") != -1 ) 
-    {
-		favicon.setAttribute("href", "images/loopfavicon.gif");
-	}
-	else 
-    {
-		favicon.setAttribute("href", "images/eagle.ico");
+    if (!isPageActive) {
+      blink();
+    } else {
+      document.title = pageTitle;
+      clearInterval(blinkEvent);
     }
+  });
+
+  document.addEventListener("visibilitychange", function (e) {
+    if (!document.hidden) {
+      document.title = pageTitle;
+      favicon.href = "./images/loopfavicon.gif";
     }
-	myFunction() 
+  });
+
+  function blink() {
+    blinkEvent = setInterval(() => {
+      if (document.title === attentionMessage) {
+        document.title = pageTitle;
+        favicon.href = "./images/eagle.ico";
+      } else {
+        document.title = attentionMessage;
+        favicon.href = "./images/folded.png";
+      }
+    }, 1000);
+  }
+};
+		   
+		   
 
 	</script> 	   
 	   
