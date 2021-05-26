@@ -22,6 +22,14 @@
   let attentionMessage = "Come back";
   let blinkEvent = null;
 
+document.addEventListener("visibilitychange", function (e) {
+    if (!document.hidden) {
+      document.title = pageTitle;
+      myFunction();
+    }
+  });	  
+	  
+	  
   document.addEventListener("visibilitychange", function (e) {
     let isPageActive = !document.hidden;
 
@@ -34,13 +42,7 @@
     }
   });
 
-  document.addEventListener("visibilitychange", function (e) {
-    if (!document.hidden) {
-      document.title = pageTitle;
-      myFunction();
-    }
-  });
-
+  
   function blink() {
     blinkEvent = setInterval(() => {
       if (document.title === attentionMessage) {
