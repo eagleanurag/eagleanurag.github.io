@@ -19,7 +19,8 @@
   window.onload = function () {
   const favicon = document.getElementById("favicon");
   let pageTitle = document.title;
-  let attentionMessage = "Come back";
+  let messageOne = "Explore More🤖";
+  let attentionMessage = "Come back ☢️";
   let blinkEvent = null;
   myFunction();
 document.addEventListener("visibilitychange", function (e) {
@@ -46,7 +47,7 @@ document.addEventListener("visibilitychange", function (e) {
   function blink() {
     blinkEvent = setInterval(() => {
       if (document.title === attentionMessage) {
-        document.title = pageTitle;
+        document.title = messageOne;
         myFunction();
       } else {
         document.title = attentionMessage;
