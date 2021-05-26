@@ -10,8 +10,30 @@
       <meta name="author" content="Anurag Pandey" />
       <!--Social Media icons--> 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      
-	   
+      <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+      <!-- <link id=favicon rel="icon" type="image/png" href="images/loopfavicon.gif"> -->
+	   <link id="favicon" rel="icon" type="image/ico"> 
+	   <script> 
+
+	// Assign a constant variable and get them by the favicon Id 
+	const favicon = document.getElementById("favicon");
+
+	// this below function assign Gif favicon to firefox browser
+	//other than firefox will show simple ico favicon
+	// because only farefox have ability to run gif favicon 
+	function myFunction() { 
+		if(navigator.userAgent.indexOf("Firefox") != -1 ) 
+    {
+		favicon.setAttribute("href", "images/loopfavicon.gif");
+	}
+	else 
+    {
+		favicon.setAttribute("href", "images/eagle.ico");
+    }
+    }
+	myFunction() 
+
+	</script> 	   
 	   
       <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700" rel="stylesheet">
@@ -38,7 +60,7 @@
 
   gtag('config', 'UA-51306993-2');
        </script>
-      <script defer src="js\dynamicTitle.js"></script>
+      
    </head>
    <body>
       <div id="colorlib-page">
