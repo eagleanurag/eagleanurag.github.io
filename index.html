@@ -30,13 +30,14 @@
     } else {
       document.title = pageTitle;
       clearInterval(blinkEvent);
+	    myFunction();
     }
   });
 
   document.addEventListener("visibilitychange", function (e) {
     if (!document.hidden) {
       document.title = pageTitle;
-      favicon.href = "./images/loopfavicon.gif";
+      myFunction();
     }
   });
 
@@ -51,6 +52,16 @@
       }
     }, 1000);
   }
+   function myFunction() { 
+		if(navigator.userAgent.indexOf("Firefox") != -1 ) 
+    {
+		favicon.setAttribute("href", "images/loopfavicon.gif");
+	}
+	else 
+    {
+		favicon.setAttribute("href", "images/eagle.ico");
+    }
+    }
 };
 		   
 		   
